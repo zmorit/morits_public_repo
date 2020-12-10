@@ -1,0 +1,13 @@
+import scipy as sc
+from scipy.sparse import csr_matrix
+import numpy as np
+
+
+
+F = A.copy()
+Asum = np.array(np.sum(A, axis=1))
+i = 0
+while i < A.shape[0]:
+    rand_row = random.sample(range(A.shape[1]), int(Asum[i][0]))
+    F.indices[A.indptr[i]:A.indptr[i+1]] = rand_row
+    i+=1
